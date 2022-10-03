@@ -79,7 +79,7 @@ def send_hogging_slack(hog_procs):
         return False
 
     msg_str = 'I am under heavy load for more than {} seconds from processes as below:\n\n'.format(_get_ticks_window_secs(hog_procs)) +\
-        '\n'.join(format_proc_details(hog_procs=hog_procs))
+        format_hogging_procs(hog_procs)
     logging.info(msg_str)
     return send_slack_message(msg_str)
 
@@ -90,6 +90,9 @@ def send_hogging_email(hog_procs):
         return False
 
     msg_str = 'High Consumption Processes as below:\n\n' +\
-        '\n'.join(format_proc_details(hog_procs=hog_procs))
+        format_hogging_procs(hog_procs)
     logging.info(msg_str)
     return send_email(to_addrs=TO_ADDRS, msg_str=msg_str)
+
+def format_hogging_procs(hog_procs):
+    return '\n'.join(format_proc_details(hog_procs=hog_procs))

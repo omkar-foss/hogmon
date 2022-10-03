@@ -2,8 +2,8 @@
 
 
 from settings import MAX_TICKS_SECS, DUR_TICK_SECS, \
-    MAX_CPU_PERCENT, MAX_MEM_PERCENT
-from helpers.notifications import send_hogging_email, send_hogging_slack
+    MAX_CPU_PERCENT, MAX_MEM_PERCENT, LOG_TO_STDOUT
+from helpers.notifications import format_hogging_procs, send_hogging_email, send_hogging_slack
 from helpers.utils import convert_bytes
 from helpers.database import save_hog_alerts
 import psutil
@@ -59,7 +59,9 @@ def get_hog_processes(
             is_slack_sent = send_hogging_slack(hog_procs)
             if not is_slack_sent:
                 send_hogging_email(hog_procs)
-            save_hog_alerts(hog_procs=hog_procs)
+            save_hog_alerts(hog_procs)
+            if LOG_TO_STDOUT:
+                print(format_hogging_procs(hog_procs))
         time.sleep(DUR_TICK_SECS)
 
 
