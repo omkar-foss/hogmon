@@ -1,0 +1,30 @@
+"""
+    Configuration file for this project.
+"""
+
+DUR_TICK_SECS = 1
+MAX_TICKS_SECS = 30
+MAX_CPU_PERCENT = 50
+MAX_MEM_PERCENT = 50
+EMAIL_NOTIFICATIONS_ENABLED = True
+FROM_ADDR_EMAIL = 'FROM-EMAIL-ADDRESS-HERE'
+FROM_ADDR_PASSWORD = 'FROM-EMAIL-PASSWORD-HERE'
+TO_ADDRS = [
+    'YOUR-EMAIL-ADDRESS-1',
+    'YOUR-EMAIL-ADDRESS-2',
+]
+SLACK_NOTIFICATIONS_ENABLED = False
+SLACK_SEND_SUCCESS_CODE = 200  # HTTP 200 OK from Slack webhook
+SLACK_WEBHOOK_URL = 'WEBHOOK-URL-HERE'
+PERSIST_ALERTS_ENABLED = True
+DB_TABLE_NAME = 'hogmon_alerts'
+DB_TABLE_COLS = [
+    'pid', 'process_name', 'command', 'cpu_percent',
+    'memory_percent', 'cpu_overload_dur_secs', 'mem_overload_dur_secs',
+    'created_at'
+]
+DB_HOST = 'DB-HOST-HERE'
+DB_NAME = 'DB-NAME-HERE'
+DB_USER = 'DB-USER-HERE'
+DB_PASSWORD = 'DB-PASSWORD-HERE'
+DB_PORT = 5432
