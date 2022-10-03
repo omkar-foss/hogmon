@@ -1,6 +1,8 @@
 # hogmon
 
-A simple monitoring tool to alert about processes hogging CPU and Memory. Supports emails as well as Slack alerts.
+A simple monitoring tool to alert about processes hogging CPU and Memory.
+Supports emails as well as Slack alerts (via [webhooks](https://api.slack.com/messaging/webhooks)). Also supports persisting the alerts
+to a PostgreSQL database.
 
 ## Usage
 
