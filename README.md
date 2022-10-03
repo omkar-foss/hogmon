@@ -13,7 +13,7 @@ to a PostgreSQL database.
     ```
 
 2. Copy `settings.py.sample` to `settings.py` and configure it as per your needs.
-3. To start the monitor, run `python monitor.py`
+3. To start the monitor, run `./start_monitor.sh`
 
 ## Examples
 
