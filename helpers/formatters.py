@@ -2,8 +2,9 @@
     Formatter functions for this project.
 """
 
-
+# pylint: disable=consider-using-f-string
 def format_proc_details(hog_procs):
+    """ Returns a list of hogging processes information. """
     proc_details = []
     for proc in hog_procs:
         proc_details.append(
